@@ -1,0 +1,71 @@
+# =========================================================================
+# Unity
+# =========================================================================
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+
+# Archivos de caché e índices locales
+/[Aa]ssets/Plugins/Editor/JetBrains*
+
+# Builds de Gradle (Android)
+.gradle/
+
+# =========================================================================
+# Asset Store / Packages
+# =========================================================================
+# Ignora la descarga local de paquetes importados pero no la configuración de manifest.json
+/[Aa]ssets/AssetStoreTools*
+
+# =========================================================================
+# Visual Studio / Visual Studio Code / JetBrains Rider
+# =========================================================================
+# Archivos de solución generados automáticamente por Unity
+/*.csproj
+/*.unityproj
+/*.sln
+/*.suo
+/*.tmp
+/*.user
+/*.userprefs
+/*.pidb
+/*.booproj
+/*.svd
+/*.pdb
+/*.opendb
+/*.idb
+
+# Directorio de configuración de VS Code
+.vscode/
+
+# Directorio de configuración de Rider / JetBrains
+.idea/
+*.sln.docstates
+
+# =========================================================================
+# Sistema Operativo
+# =========================================================================
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Windows
+[Tt]humbs.db
+[Dd]esktop.ini
+
+# =========================================================================
+# Crash Reports & Log Files
+# =========================================================================
+sysinfo.txt
+*.stackdump

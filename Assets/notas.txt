@@ -1,0 +1,19 @@
+Para el tutorial:
+
+poner una matriz de 3x3 tipo:
+
+0   1   0
+1   1   1
+0   1   0
+
+donde 1 es encendido y 0 es apagado
+luego obligar al jugador a presionar la del medio para tener la siguiente matriz
+
+0   0   0
+0   0   0
+0   0   0
+
+y gana el nivel
+
+entonces inicia con uno sencillo que SI se pueda ganar
+
