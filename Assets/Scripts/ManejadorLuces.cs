@@ -11,12 +11,6 @@ public class ManejadorLuces : MonoBehaviour
         EncenderTodas();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void ApagarTodas()
     {
         foreach (Luz luz in luces)
@@ -32,27 +26,27 @@ public class ManejadorLuces : MonoBehaviour
         }
     }
 
-    public void ApagarLuz(Luz luz)
+    public void Conmutador(Luz luz)
     {
         int indice = luces.IndexOf(luz);
         
         if (indice == 0)
         {
-            luz.Apagar();
-            luces[indice + 1].Encender();
+            luz.Conmutar();
+            luces[indice + 1].Conmutar();
             return;
         }
 
         if (indice == luces.Count - 1)
         {
-            luces[indice - 1].Encender();
-            luz.Apagar();
+            luces[indice - 1].Conmutar();
+            luz.Conmutar();
             return;
         }
 
-        luces[indice - 1].Encender();
-        luz.Apagar();
-        luces[indice + 1].Encender();
+        luces[indice - 1].Conmutar();
+        luz.Conmutar();
+        luces[indice + 1].Conmutar();
 
     }
 

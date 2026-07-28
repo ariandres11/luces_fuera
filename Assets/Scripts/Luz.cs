@@ -28,4 +28,16 @@ public class Luz : MonoBehaviour
         encendida = true;
         imagen.sprite = luzEncendida;
     }
+
+    public void Conmutar()
+    {
+        if (encendida)
+        {
+            Apagar();
+        }
+        else
+        {
+            Encender();
+        }
+    }
 }
