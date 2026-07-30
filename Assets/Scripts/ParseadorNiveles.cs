@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; // Importante para poder acceder al componente Button
 
 public class ParseadorNiveles : MonoBehaviour
 {
     [Header("Configuración")]
     public NivelData datosNivel;
-    public GameObject luzPrefab;    // El prefab del botón con el script Luz.cs
-
-    public List<Luz> lucesGeneradas = new List<Luz>();
+    public GameObject luzPrefab;
+    
+    [Header("Conexiones")]
+    public ManejadorLuces manejador;
 
     void Start()
     {
@@ -22,7 +24,12 @@ public class ParseadorNiveles : MonoBehaviour
         {
             Destroy(hijo.gameObject);
         }
-        lucesGeneradas.Clear();
+        
+        // Limpiamos la lista del manejador antes de empezar
+        if (manejador != null)
+        {
+            manejador.luces.Clear();
+        }
 
         // 2. Validaciones
         if (datosNivel == null)
@@ -37,15 +44,25 @@ public class ParseadorNiveles : MonoBehaviour
             return;
         }
 
-        // 3. Extraemos el texto directamente desde el ScriptableObject
-        string textoBruto = datosNivel.archivoMatriz.text.Trim();
+        if (manejador == null)
+        {
+            Debug.LogError("No asignaste el ManejadorLuces al Parseador.");
+            return;
+        }
 
-        // 4. Separamos por filas (;)
+        // 3. Extraemos el texto y separamos por filas
+        string textoBruto = datosNivel.archivoMatriz.text.Trim();
         string[] filas = textoBruto.Split(new char[] { ';', '\n', '\r' }, System.StringSplitOptions.RemoveEmptyEntries);
 
+        // 4. Le decimos al manejador cuántas columnas tiene este nivel
+        if (filas.Length > 0)
+        {
+            manejador.columnas = filas[0].Split(',').Length;
+        }
+
+        // 5. Construimos la matriz
         for (int y = 0; y < filas.Length; y++)
         {
-            // Separamos la fila en columnas (,)
             string[] columnas = filas[y].Split(',');
 
             for (int x = 0; x < columnas.Length; x++)
@@ -55,9 +72,16 @@ public class ParseadorNiveles : MonoBehaviour
                 nuevaLuzObj.name = $"Luz_{x}_{y}";
 
                 Luz componenteLuz = nuevaLuzObj.GetComponent<Luz>();
-                string valorCelda = columnas[x].Trim();
+                
+                // --- CONECTAMOS EL BOTÓN AL MANEJADOR ---
+                Button boton = nuevaLuzObj.GetComponent<Button>();
+                if (boton != null)
+                {
+                    boton.onClick.AddListener(() => manejador.Conmutador(componenteLuz));
+                }
 
-                // Encendemos o apagamos
+                // --- ESTABLECEMOS EL ESTADO INICIAL ---
+                string valorCelda = columnas[x].Trim();
                 if (valorCelda == "1")
                 {
                     componenteLuz.Encender();
@@ -67,7 +91,8 @@ public class ParseadorNiveles : MonoBehaviour
                     componenteLuz.Apagar();
                 }
 
-                lucesGeneradas.Add(componenteLuz);
+                // Añadimos la luz a la lista del manejador
+                manejador.luces.Add(componenteLuz);
             }
         }
     }
