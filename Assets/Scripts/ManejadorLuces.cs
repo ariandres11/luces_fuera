@@ -6,6 +6,7 @@ public class ManejadorLuces : MonoBehaviour
 {
     [Header("Referencias")]
     public List<Luz> luces;
+    public GameObject contenedorGanaste;
     
     [Header("Configuración Automática")]
     public int columnas;
@@ -55,7 +56,7 @@ public class ManejadorLuces : MonoBehaviour
         }
         if (TodasApagadas())
         {
-            Debug.Log("¡Felicidades! Has apagado todas las luces.");
+            contenedorGanaste.SetActive(true);
         }
     }
 
