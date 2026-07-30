@@ -14,7 +14,6 @@ public class Luz : MonoBehaviour
     void Awake()
     {
         imagen = GetComponent<Image>();
-        //GetComponent<Button>().onClick.AddListener(Conmutar);
 
     }
     
