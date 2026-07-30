@@ -5,7 +5,7 @@ using UnityEngine;
 public class ParseadorNiveles : MonoBehaviour
 {
     [Header("Configuración")]
-    public NivelData datosNivel;  
+    public NivelData datosNivel;
     public GameObject luzPrefab;    // El prefab del botón con el script Luz.cs
 
     public List<Luz> lucesGeneradas = new List<Luz>();
@@ -52,7 +52,7 @@ public class ParseadorNiveles : MonoBehaviour
             {
                 // Instanciamos
                 GameObject nuevaLuzObj = Instantiate(luzPrefab, transform);
-                nuevaLuzObj.name = $"Luz_{x}_{y}"; 
+                nuevaLuzObj.name = $"Luz_{x}_{y}";
 
                 Luz componenteLuz = nuevaLuzObj.GetComponent<Luz>();
                 string valorCelda = columnas[x].Trim();

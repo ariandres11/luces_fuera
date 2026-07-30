@@ -1651,6 +1651,7 @@ GameObject:
   - component: {fileID: 2003045898}
   - component: {fileID: 2003045897}
   - component: {fileID: 2003045900}
+  - component: {fileID: 2003045901}
   m_Layer: 5
   m_Name: ContenedorLuces
   m_TagString: Untagged
@@ -1767,6 +1768,21 @@ MonoBehaviour:
   - {fileID: 1974078709}
   - {fileID: 1727371606}
   - {fileID: 1579720166}
+--- !u!114 &2003045901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003045895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e890759e685108b4f8d1f97e03c473f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  datosNivel: {fileID: 11400000, guid: 45af17e35574aa745a36feb66f6604c2, type: 2}
+  luzPrefab: {fileID: 5242031067106154213, guid: 14a861271a5120d4aa64551108a294f2, type: 3}
+  lucesGeneradas: []
 --- !u!1001 &4850390327253013425
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c163b4e982b28e42adb737a3cdbe49e, type: 3}
   m_Name: NivelUno
   m_EditorClassIdentifier: 
-  textFile: {fileID: 4900000, guid: 3d7424158ce2fe34ca53fd33fbb3e253, type: 3}
+  archivoMatriz: {fileID: 4900000, guid: 3d7424158ce2fe34ca53fd33fbb3e253, type: 3}
